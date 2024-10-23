@@ -1,8 +1,10 @@
 .. _changelog:
 
 =========
-Changelog
+变更日志
 =========
+
+**Changelog**
 
 .. rst-class:: emphasize-children
 

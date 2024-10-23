@@ -1,6 +1,8 @@
 ==================
-Contribution Guide
+贡献指南
 ==================
+
+**Contribution Guide**
 
 .. toctree::
    :hidden:

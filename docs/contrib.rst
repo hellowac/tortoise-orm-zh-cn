@@ -1,5 +1,7 @@
-Contrib
+贡献
 =======
+
+**Contrib**
 
 .. toctree::
    :maxdepth: 3

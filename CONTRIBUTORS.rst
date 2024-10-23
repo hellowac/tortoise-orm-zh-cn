@@ -1,9 +1,13 @@
 ======
-Thanks
+感谢
 ======
 
-Contributors
+**Thanks**
+
+贡献列表
 ============
+
+**Contributors**
 
 * Andrey Bondar ``@abondar``
 * Nickolas Grigoriadis ``@grigi``
@@ -61,7 +65,17 @@ Contributors
 * Andrea Magistà ``@vlakius``
 * Daniel Szucs ``@Quasar6X``
 
-Special Thanks
+特别感谢
 ==============
 
-Huge thanks to https://github.com/kayak/pypika for all heavy lifting.
+**Special Thanks**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        非常感谢 https://github.com/kayak/pypika 所做的所有繁重工作。
+    
+    .. md-tab-item:: 英文
+
+        Huge thanks to https://github.com/kayak/pypika for all heavy lifting.

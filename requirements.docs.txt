@@ -1,0 +1,5 @@
+importlib-metadata
+sphinx 
+sphinx-autobuild
+sphinx-immaterial
+sphinx-copybutton
