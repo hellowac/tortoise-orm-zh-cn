@@ -1,17 +1,22 @@
 .. _examples_pydantic:
 
 =================
-Pydantic Examples
+Pydantic 样例
 =================
 
-See :ref:`contrib_pydantic`
+**Pydantic Examples**
+
+见 :ref:`contrib_pydantic`
 
 .. rst-class:: html-toggle
 
 .. _example_pydantic_basic:
 
-Basic Pydantic
+基本用法
 ==============
+
+**Basic Pydantic**
+
 .. literalinclude::  ../../examples/pydantic/basic.py
 
 
@@ -19,8 +24,11 @@ Basic Pydantic
 
 .. _example_pydantic_early_init:
 
-Early model Init
+早期模型初始化
 ================
+
+**Early model Init**
+
 .. literalinclude::  ../../examples/pydantic/early_init.py
 
 
@@ -28,8 +36,11 @@ Early model Init
 
 .. _example_pydantic_recursive:
 
-Recursive models + Computed fields
+递归模型 + 计算字段
 ==================================
+
+**Recursive models + Computed fields**
+
 .. literalinclude::  ../../examples/pydantic/recursive.py
 
 
@@ -37,15 +48,20 @@ Recursive models + Computed fields
 
 .. rst-class:: emphasize-children
 
-Tutorial sources
+教程来源
 ================
+
+**Tutorial sources**
 
 .. _example_pydantic_tut1:
 
 .. rst-class:: html-toggle
 
-1: Basic usage
+1: 基本用法
 --------------
+
+**Basic usage**
+
 .. literalinclude::  ../../examples/pydantic/tutorial_1.py
 
 .. _example_pydantic_tut2:

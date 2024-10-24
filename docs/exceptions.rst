@@ -1,7 +1,10 @@
+:tocdepth: 2
+
 ==========
-Exceptions
+异常
 ==========
 
+**Exceptions**
 
 .. automodule:: tortoise.exceptions
     :members:

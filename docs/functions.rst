@@ -1,23 +1,53 @@
+:tocdepth: 3
+
 .. _functions:
 
 ======================
-Functions & Aggregates
+函数和聚合
 ======================
 
-To apply functions to values and get aggregates computed on the DB side, one needs to annotate the QuerySet.
+**Functions & Aggregates**
 
-.. code-block:: py3
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
 
-    results = await SomeModel.filter(...).annotate(clean_desc=Coalesce("desc", "N/A"))
+        要对值应用函数并获取在数据库端计算的聚合，需要对 QuerySet 进行注释。
 
-This will add a new attribute on each ``SomeModel`` instance called ``clean_desc`` that will now contain the annotated data.
+        .. code-block:: python3
 
-One can also call ``.values()`` or ``.values_list()`` on it to get the data as per regular.
+            results = await SomeModel.filter(...).annotate(clean_desc=Coalesce("desc", "N/A"))
 
-Functions
+        这将为每个 ``SomeModel`` 实例添加一个新属性 ``clean_desc``，该属性现在将包含注释的数据。
+
+        还可以在其上调用 ``.values()`` 或 ``.values_list()`` 来按照常规方式获取数据。
+
+    .. md-tab-item:: 英文
+
+        To apply functions to values and get aggregates computed on the DB side, one needs to annotate the QuerySet.
+
+        .. code-block:: py3
+
+            results = await SomeModel.filter(...).annotate(clean_desc=Coalesce("desc", "N/A"))
+
+        This will add a new attribute on each ``SomeModel`` instance called ``clean_desc`` that will now contain the annotated data.
+
+        One can also call ``.values()`` or ``.values_list()`` on it to get the data as per regular.
+
+函数
 =========
 
-Functions apply a transform on each instance of a Field.
+**Functions**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        函数对字段的每个实例应用转换。
+    
+    .. md-tab-item:: 英文
+
+        Functions apply a transform on each instance of a Field.
 
 .. autoclass:: tortoise.functions.Trim
 
@@ -37,11 +67,21 @@ Functions apply a transform on each instance of a Field.
 
 .. autoclass:: tortoise.contrib.sqlite.functions.Random
 
-Aggregates
+聚合
 ==========
 
-Aggregated apply on the entire column, and will often be used with grouping.
-So often makes sense with a ``.first()`` QuerySet.
+**Aggregates**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        聚合应用于整个列，并且经常与分组一起使用。因此通常使用 ``.first()`` QuerySet 才有意义。
+    
+    .. md-tab-item:: 英文
+
+        Aggregated apply on the entire column, and will often be used with grouping.
+        So often makes sense with a ``.first()`` QuerySet.
 
 .. autoclass:: tortoise.functions.Count
 
@@ -54,8 +94,10 @@ So often makes sense with a ``.first()`` QuerySet.
 .. autoclass:: tortoise.functions.Avg
 
 
-Base function class
+基础函数类
 ===================
+
+**Base function class**
 
 .. automodule:: tortoise.functions
     :members: Aggregate
@@ -63,23 +105,48 @@ Base function class
     .. autoclass:: Function
         :members:
 
-Custom functions
+自定义函数
 ================
-You can define custom functions which are not builtin, such as ``TruncMonth`` and ``JsonExtract`` etc.
 
-.. code-block:: python3
+**Custom functions**
 
-    from pypika import CustomFunction
-    from tortoise.expressions import F, Function
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
 
-    class TruncMonth(Function):
-        database_func = CustomFunction("DATE_FORMAT", ["name", "dt_format"])
+        您可以定义自定义函数，这些函数不是内置的，例如 ``TruncMonth`` 和 ``JsonExtract`` 等。
 
-    sql = Task.all().annotate(date=TruncMonth('created_at', '%Y-%m-%d')).values('date').sql()
-    print(sql)
-    # SELECT DATE_FORMAT(`created_at`,'%Y-%m-%d') `date` FROM `task`
+        .. code-block:: python3
 
-And you can also use functions in update, the example is only suitable for MySQL and SQLite, but PostgreSQL is the same.
+            from pypika import CustomFunction
+            from tortoise.expressions import F, Function
+
+            class TruncMonth(Function):
+                database_func = CustomFunction("DATE_FORMAT", ["name", "dt_format"])
+
+            sql = Task.all().annotate(date=TruncMonth('created_at', '%Y-%m-%d')).values('date').sql()
+            print(sql)
+            # SELECT DATE_FORMAT(`created_at`,'%Y-%m-%d') `date` FROM `task`
+
+        您还可以在更新中使用函数，该示例仅适用于 MySQL 和 SQLite，但 PostgreSQL 也是一样的。
+    
+    .. md-tab-item:: 英文
+
+        You can define custom functions which are not builtin, such as ``TruncMonth`` and ``JsonExtract`` etc.
+
+        .. code-block:: python3
+
+            from pypika import CustomFunction
+            from tortoise.expressions import F, Function
+
+            class TruncMonth(Function):
+                database_func = CustomFunction("DATE_FORMAT", ["name", "dt_format"])
+
+            sql = Task.all().annotate(date=TruncMonth('created_at', '%Y-%m-%d')).values('date').sql()
+            print(sql)
+            # SELECT DATE_FORMAT(`created_at`,'%Y-%m-%d') `date` FROM `task`
+
+        And you can also use functions in update, the example is only suitable for MySQL and SQLite, but PostgreSQL is the same.
 
 .. code-block:: python3
 

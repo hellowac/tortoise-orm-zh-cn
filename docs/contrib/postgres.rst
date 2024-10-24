@@ -1,13 +1,25 @@
+:tocdepth: 4
+
 .. _contrib_postgre:
 
 ========
 Postgres
 ========
 
-Indexes
+索引
 =======
 
-Postgres specific indexes.
+**Indexes**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        Postgres 特定索引。
+    
+    .. md-tab-item:: 英文
+
+        Postgres specific indexes.
 
 .. autoclass:: tortoise.contrib.postgres.indexes.BloomIndex
 .. autoclass:: tortoise.contrib.postgres.indexes.BrinIndex
@@ -16,25 +28,45 @@ Postgres specific indexes.
 .. autoclass:: tortoise.contrib.postgres.indexes.HashIndex
 .. autoclass:: tortoise.contrib.postgres.indexes.SpGistIndex
 
-Fields
+字段
 ======
 
-Postgres specific fields.
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        Postgres 特定字段。
+    
+    .. md-tab-item:: 英文
+
+        Postgres specific fields.
 
 .. autoclass:: tortoise.contrib.postgres.fields.ArrayField
 .. autoclass:: tortoise.contrib.postgres.fields.TSVectorField
 
 
-Functions
+函数
 =========
+
+**Functions**
 
 .. autoclass:: tortoise.contrib.postgres.functions.ToTsVector
 .. autoclass:: tortoise.contrib.postgres.functions.ToTsQuery
 .. autoclass:: tortoise.contrib.postgres.functions.PlainToTsQuery
 
-Search
+搜索
 ======
 
-Postgres full text search.
+**Search**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        Postgres 全文搜索。
+    
+    .. md-tab-item:: 英文
+
+        Postgres full text search.
 
 .. autoclass:: tortoise.contrib.postgres.search.SearchCriterion

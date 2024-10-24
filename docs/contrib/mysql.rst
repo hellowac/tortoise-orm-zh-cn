@@ -1,28 +1,60 @@
+:tocdepth: 4
+
 .. _contrib_mysql:
 
 =====
 MySQL
 =====
 
-Indexes
+索引
 =======
 
-MySQL specific indexes.
+**Indexes**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        MySQL 特定索引。
+    
+    .. md-tab-item:: 英文
+
+        MySQL specific indexes.
 
 .. autoclass:: tortoise.contrib.mysql.indexes.FullTextIndex
 .. autoclass:: tortoise.contrib.mysql.indexes.SpatialIndex
 
-Fields
+字段
 ======
 
-MySQL specific fields.
+**Fields**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        MySQL 特定字段。
+    
+    .. md-tab-item:: 英文
+
+        MySQL specific fields.
 
 .. autoclass:: tortoise.contrib.mysql.fields.GeometryField
 .. autoclass:: tortoise.contrib.mysql.fields.UUIDField
 
-Search
+搜索
 ======
 
-MySQL full text search.
+**Search**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        MySQL 全文搜索。
+    
+    .. md-tab-item:: 英文
+
+        MySQL full text search.
 
 .. autoclass:: tortoise.contrib.mysql.search.SearchCriterion

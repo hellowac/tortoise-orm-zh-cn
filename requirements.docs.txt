@@ -3,3 +3,8 @@ sphinx
 sphinx-autobuild
 sphinx-immaterial
 sphinx-copybutton
+blacksheep
+aiohttp
+fastapi
+quart
+sanic

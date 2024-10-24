@@ -48,7 +48,7 @@ release = version
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.napoleon",
+    "sphinx.ext.napoleon",  # 使 Sphinx 能够解析NumPy 和Google风格的文档字符串
     "sphinx_autodoc_typehints",
     "sphinx.ext.todo",
     "sphinx.ext.doctest",
@@ -56,8 +56,8 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
-    "sphinx_copybutton",
     "sphinx_immaterial",
+    "sphinx_copybutton",  # 代码框的复制按钮
 ]
 autosummary_generate = True
 autoclass_content = "class"
@@ -83,6 +83,7 @@ index_doc = "index"
 # Usually you set "language" from the command line for these cases.
 # language = None
 # language = "zh-CN"
+# html_search_language = "zh-CN"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -115,12 +116,7 @@ napoleon_use_rtype = True
 # a list of builtin themes.
 #
 html_theme = "sphinx_immaterial"
-html_show_sourcelink = True
-html_theme_options = {
-    "features": [
-        "content.tabs.link",
-    ]
-}
+# html_show_sourcelink = True
 
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -134,14 +130,15 @@ def get_version_info():
 
 
 html_theme_options = {
-    "google_analytics": ["G-MJ7RHW2FRB", "auto"],
-    "repo_url": "https://github.com/tortoise/tortoise-orm",
-    "repo_name": "tortoise-orm",
-    "globaltoc_collapse": True,
-    "globaltoc_includehidden": True,
     "icon": {
         "repo": "fontawesome/brands/github",
     },
+    # "google_analytics": ["G-MJ7RHW2FRB", "auto"],
+    "repo_url": "https://github.com/hellowac/tortoise-orm-zh-cn",
+    "repo_name": "tortoise-orm-zh-cn",
+    "edit_uri": "blob/main/docs",
+    "globaltoc_collapse": False,
+    # "globaltoc_includehidden": True,
     "palette": [
         {
             "media": "(prefers-color-scheme: light)",
@@ -164,21 +161,25 @@ html_theme_options = {
             },
         },
     ],
-    "site_url": "https://tortoise.github.io",
-    "repo_type": "github",
+    "site_url": "https://hellowac.github.io/hellowac/tortoise-orm-zh-cn",
+    # "repo_type": "github",
+    # "repo_name": "github",
     "features": [
         "navigation.expand",
         "navigation.tabs",
-        "toc.integrate",
         "navigation.sections",
         "navigation.instant",
-        "header.autohide",
+        "header.autohide",  # 头部自动隐藏
         "navigation.top",
         "navigation.tracking",
         "search.highlight",
         "search.share",
+        # "toc.integrate",   # 单页面内的目录在右边单独显示
+        "toc.follow",
+        "toc.sticky",
+        # "content.tabs.link",  # tab联动
     ],
-    "version_dropdown": True,
+    "version_dropdown": False,
     "toc_title_is_page_title": True,
     "version_info": get_version_info(),
 }

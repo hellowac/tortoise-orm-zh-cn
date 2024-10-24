@@ -1,10 +1,20 @@
 .. _example_blacksheep:
 
 ===================
-BlackSheep Examples
+BlackSheep 样例
 ===================
 
-This is an example of the  :ref:`contrib_blacksheep`
+**BlackSheep Examples**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        这是 :ref:`contrib_blacksheep` 的一个示例
+    
+    .. md-tab-item:: 英文
+
+        This is an example of the  :ref:`contrib_blacksheep`
 
 **Usage:**
 
@@ -15,8 +25,10 @@ This is an example of the  :ref:`contrib_blacksheep`
 
 .. rst-class:: emphasize-children
 
-Basic non-relational example
+基本非关系示例
 ============================
+
+**Basic non-relational example**
 
 models.py
 ---------

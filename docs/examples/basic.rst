@@ -1,15 +1,17 @@
 .. _examples_simple:
 
 ===============
-Simple Examples
+简单样例
 ===============
+
+**Simple Examples**
 
 .. rst-class:: html-toggle
 
 .. _example_basic:
 
-Basic
-=====
+基本使用(Basic)
+===============
 .. literalinclude::  ../../examples/basic.py
 
 
@@ -17,8 +19,8 @@ Basic
 
 .. _example_basic_comments:
 
-Comments
-========
+备注(Comments)
+================
 .. literalinclude::  ../../examples/basic_comments.py
 
 
@@ -26,8 +28,8 @@ Comments
 
 .. _example_prefetching:
 
-Prefetching
-===========
+预取(Prefetching)
+======================
 .. literalinclude::  ../../examples/complex_prefetching.py
 
 
@@ -35,8 +37,8 @@ Prefetching
 
 .. _example_transactions:
 
-Transactions
-============
+事务(Transactions)
+========================
 .. literalinclude::  ../../examples/transactions.py
 
 
@@ -44,8 +46,8 @@ Transactions
 
 .. _example_functions:
 
-Functions
-=========
+函数(Functions)
+==================
 .. literalinclude::  ../../examples/functions.py
 
 
@@ -53,8 +55,8 @@ Functions
 
 .. _example_schema_create:
 
-Group By
-========
+分组(Group By)
+================
 .. literalinclude::  ../../examples/group_by.py
 
 
@@ -62,8 +64,8 @@ Group By
 
 .. _example_aggregation:
 
-Schema creation
-===============
+Schema创建(Schema creation)
+==============================
 .. literalinclude::  ../../examples/schema_create.py
 
 
@@ -71,8 +73,8 @@ Schema creation
 
 .. _example_two_databases:
 
-Two Databases
-=============
+多数据库(Two Databases)
+==========================
 .. literalinclude::  ../../examples/two_databases.py
 
 
@@ -80,8 +82,8 @@ Two Databases
 
 .. _example_filtering:
 
-Filtering
-=========
+过滤(Filtering)
+==================
 .. literalinclude::  ../../examples/complex_filtering.py
 
 
@@ -89,8 +91,8 @@ Filtering
 
 .. _example_relations:
 
-Relations
-=========
+关系(Relations)
+==================
 .. literalinclude::  ../../examples/relations.py
 
 
@@ -98,8 +100,8 @@ Relations
 
 .. _example_relations_recursive:
 
-Relations with Unique field
-===========================
+唯一字段关系(Relations with Unique field)
+======================================================
 .. literalinclude::  ../../examples/relations_with_unique.py
 
 
@@ -107,8 +109,8 @@ Relations with Unique field
 
 .. _example_relations_with_unique:
 
-Recursive Relations
-===================
+递归关系(Recursive Relations)
+======================================
 .. literalinclude::  ../../examples/relations_recursive.py
 
 
@@ -116,8 +118,8 @@ Recursive Relations
 
 .. _example_enum_fields:
 
-Enumeration Fields
-==================
+枚举字段(Enumeration Fields)
+====================================
 .. literalinclude::  ../../examples/enum_fields.py
 
 
@@ -125,8 +127,8 @@ Enumeration Fields
 
 .. _example_model_signals:
 
-Model Signals
-=============
+模型信号(Model Signals)
+==========================
 .. literalinclude::  ../../examples/signals.py
 
 
@@ -134,13 +136,13 @@ Model Signals
 
 .. _example_manual_sql:
 
-Manual SQL
-==========
+手写SQL(Manual SQL)
+====================
 .. literalinclude::  ../../examples/manual_sql.py
 
 
-Router
-======
+路由(Router)
+============
 .. literalinclude::  ../../examples/router.py
 
 

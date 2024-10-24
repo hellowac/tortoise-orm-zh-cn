@@ -1,8 +1,12 @@
+:tocdepth: 2
+
 .. _transactions:
 
 ============
-Transactions
+事务
 ============
+
+**Transactions**
 
 .. automodule:: tortoise.transactions
     :members:

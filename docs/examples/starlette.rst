@@ -1,10 +1,20 @@
 .. _example_starlette:
 
 =================
-Starlette Example
+Starlette 样例
 =================
 
-This is an example of the  :ref:`contrib_starlette`
+**Starlette Example**
+
+.. md-tab-set::
+    
+    .. md-tab-item:: 中文
+
+        这是 :ref:`contrib_starlette` 的一个示例
+    
+    .. md-tab-item:: 英文
+
+        This is an example of the  :ref:`contrib_starlette`
 
 **Usage:**
 
