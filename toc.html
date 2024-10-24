@@ -1,0 +1,2280 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="_static/tortoise.png">
+    
+    
+      
+        <title>Tortoise ORM v0.21.7 Documentation</title>
+      
+    
+    
+      
+        
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="_static/sphinx_immaterial_theme.4b4a8c74e2ff2ab5b.min.css?v=afa97f93" />
+        <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="#" title="Tortoise ORM v0.21.7 Documentation" class="md-header__button md-logo" aria-label="Tortoise ORM v0.21.7 Documentation" data-md-component="logo">
+      <img src="_static/tortoise.png" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tortoise ORM 0.21.7 Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              目录
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hellowac/tortoise-orm-zh-cn" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tortoise-orm-zh-cn
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="index.html" class="md-tabs__link">
+      <span class="md-ellipsis">Tortoise ORM</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="getting_started.html" class="md-tabs__link">
+      <span class="md-ellipsis">开始入门</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="reference.html" class="md-tabs__link">
+      <span class="md-ellipsis">参考</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="examples.html" class="md-tabs__link">
+      <span class="md-ellipsis">样例</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="contrib.html" class="md-tabs__link">
+      <span class="md-ellipsis">集成/插件</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="CHANGELOG.html" class="md-tabs__link">
+      <span class="md-ellipsis">变更日志</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="roadmap.html" class="md-tabs__link">
+      <span class="md-ellipsis">路线图</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="CONTRIBUTING.html" class="md-tabs__link">
+      <span class="md-ellipsis">贡献指南</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="CONTRIBUTORS.html" class="md-tabs__link">
+      <span class="md-ellipsis">感谢</span>
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="#" title="Tortoise ORM v0.21.7 Documentation" class="md-nav__button md-logo" aria-label="Tortoise ORM v0.21.7 Documentation" data-md-component="logo">
+      <img src="_static/tortoise.png" alt="logo">
+    </a>
+    Tortoise ORM v0.21.7 Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hellowac/tortoise-orm-zh-cn" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tortoise-orm-zh-cn
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        <span class="md-ellipsis">Tortoise ORM</span>
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting_started.html" class="md-nav__link">
+        <span class="md-ellipsis">开始入门</span>
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="reference.html"><span class="md-ellipsis">参考</span></a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="参考" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">参考</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup.html" class="md-nav__link">
+        <span class="md-ellipsis">启动</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="databases.html" class="md-nav__link">
+        <span class="md-ellipsis">数据库</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="models.html" class="md-nav__link">
+        <span class="md-ellipsis">模型</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fields.html" class="md-nav__link">
+        <span class="md-ellipsis">字段</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="indexes.html" class="md-nav__link">
+        <span class="md-ellipsis">索引</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="timezone.html" class="md-nav__link">
+        <span class="md-ellipsis">时区</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema.html" class="md-nav__link">
+        <span class="md-ellipsis">Schema 创建</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="query.html" class="md-nav__link">
+        <span class="md-ellipsis">查询API</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manager.html" class="md-nav__link">
+        <span class="md-ellipsis">Manager</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions.html" class="md-nav__link">
+        <span class="md-ellipsis">函数和聚合</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="expressions.html" class="md-nav__link">
+        <span class="md-ellipsis">表达式</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="transactions.html" class="md-nav__link">
+        <span class="md-ellipsis">事务</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connections.html" class="md-nav__link">
+        <span class="md-ellipsis">连接</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exceptions.html" class="md-nav__link">
+        <span class="md-ellipsis">异常</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="signals.html" class="md-nav__link">
+        <span class="md-ellipsis">信号</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="migration.html" class="md-nav__link">
+        <span class="md-ellipsis">迁移</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="validators.html" class="md-nav__link">
+        <span class="md-ellipsis">校验</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="logging.html" class="md-nav__link">
+        <span class="md-ellipsis">Logging</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router.html" class="md-nav__link">
+        <span class="md-ellipsis">路由</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cli.html" class="md-nav__link">
+        <span class="md-ellipsis">Tortoise<wbr>CLI</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="examples.html"><span class="md-ellipsis">样例</span></a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="样例" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">样例</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/basic.html" class="md-nav__link">
+        <span class="md-ellipsis">简单样例</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/pydantic.html" class="md-nav__link">
+        <span class="md-ellipsis">Pydantic 样例</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/fastapi.html" class="md-nav__link">
+        <span class="md-ellipsis">Fast<wbr>API 样例</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/quart.html" class="md-nav__link">
+        <span class="md-ellipsis">Quart 样例</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/sanic.html" class="md-nav__link">
+        <span class="md-ellipsis">Sanic 样例</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/starlette.html" class="md-nav__link">
+        <span class="md-ellipsis">Starlette 样例</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/aiohttp.html" class="md-nav__link">
+        <span class="md-ellipsis">AIOHTTP 样例</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/blacksheep.html" class="md-nav__link">
+        <span class="md-ellipsis">Black<wbr>Sheep 样例</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="contrib.html"><span class="md-ellipsis">集成/插件</span></a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="集成/插件" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">集成/插件</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/linters.html" class="md-nav__link">
+        <span class="md-ellipsis">Linters</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/pydantic.html" class="md-nav__link">
+        <span class="md-ellipsis">Pydantic 序列化</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/unittest.html" class="md-nav__link">
+        <span class="md-ellipsis">单元测试支持</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/fastapi.html" class="md-nav__link">
+        <span class="md-ellipsis">Tortoise-<wbr>ORM Fast<wbr>API 集成</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/quart.html" class="md-nav__link">
+        <span class="md-ellipsis">Tortoise-<wbr>ORM Quart 集成</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/sanic.html" class="md-nav__link">
+        <span class="md-ellipsis">Tortoise-<wbr>ORM Sanic 集成</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/starlette.html" class="md-nav__link">
+        <span class="md-ellipsis">Tortoise-<wbr>ORM Starlette 集成</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/aiohttp.html" class="md-nav__link">
+        <span class="md-ellipsis">Tortoise-<wbr>ORM aiohttp 集成</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/mysql.html" class="md-nav__link">
+        <span class="md-ellipsis">My<wbr>SQL</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/postgres.html" class="md-nav__link">
+        <span class="md-ellipsis">Postgres</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contrib/blacksheep.html" class="md-nav__link">
+        <span class="md-ellipsis">Tortoise-<wbr>ORM Black<wbr>Sheep 集成</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CHANGELOG.html" class="md-nav__link">
+        <span class="md-ellipsis">变更日志</span>
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roadmap.html" class="md-nav__link">
+        <span class="md-ellipsis">路线图</span>
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="CONTRIBUTING.html"><span class="md-ellipsis">贡献指南</span></a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="贡献指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">贡献指南</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CODE_OF_CONDUCT.html" class="md-nav__link">
+        <span class="md-ellipsis">Contributor Covenant Code of Conduct</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONTRIBUTORS.html" class="md-nav__link">
+        <span class="md-ellipsis">感谢</span>
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                  
+
+
+  <a href="https://github.com/hellowac/tortoise-orm-zh-cn/blob/main/docs/toc.rst" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+<h1 id="id1">目录<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Tortoise ORM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id2">引言</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id3">为什么要构建 Tortoise ORM？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#orm">ORM 有何用处？</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id4">功能</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#python">干净、熟悉的 Python 界面</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id5">可插入数据库后端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id7">以及更多</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">开始入门</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id2">安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#id3">可选加速器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id7">教程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html">启动</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#app">初始化app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#cleaningup">清理的重要性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#id3">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#tortoise.BaseDBAsyncClient">tortoise.BaseDBAsyncClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#tortoise.Model">tortoise.Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup.html#tortoise.Tortoise">tortoise.Tortoise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">数据库</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#db-url">DB_URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#id3">功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#tortoise.backends.base.client.Capabilities">tortoise.backends.base.client.Capabilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#sqlite">SQLite</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#id4">必选参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#id5">可选参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#postgresql">PostgreSQL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#id6">必选参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#id7">可选参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#mysql-mariadb">MySQL/MariaDB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#id8">必选参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#id9">可选参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#mssql-oracle">MSSQL/Oracle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#id10">必须参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#id11">可选参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#oracle">Oracle中的编码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#ssl">传递自定义SSL证书</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#db">基本DB客户端</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="databases.html#tortoise.backends.base.client.BaseDBAsyncClient">tortoise.backends.base.client.BaseDBAsyncClient</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">模型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html#id2">使用方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id3"><code class="docutils literal notranslate"><span class="pre">__models__</span></code> 的用法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id4">主键</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id5">继承</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#meta">Meta类</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.Meta">tortoise.models.Model.Meta</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#id0">tortoise.models.Model.Meta</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">外键</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="models.html#id15">数据库字段</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#id16">获取外键对象</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id17">多对多关系</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#id18">改进关系类型提示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.html#id19">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="models.html#tortoise.models.Model">tortoise.models.Model</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="models.html#id20">Meta</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.all">all</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.annotate">annotate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.bulk_create">bulk_create</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.bulk_update">bulk_update</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.clone">clone</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.create">create</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.delete">delete</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.describe">describe</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.exclude">exclude</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.exists">exists</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.fetch_for_list">fetch_for_list</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.fetch_related">fetch_related</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.filter">filter</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.first">first</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.get">get</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.get_or_create">get_or_create</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.get_or_none">get_or_none</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.in_bulk">in_bulk</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.pk">pk</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.raw">raw</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.refresh_from_db">refresh_from_db</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.register_listener">register_listener</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.save">save</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.select_for_update">select_for_update</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.update_from_dict">update_from_dict</a></li>
+<li class="toctree-l5"><a class="reference internal" href="models.html#tortoise.models.Model.update_or_create">update_or_create</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fields.html">字段</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#id2">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#id3">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fields.html#id4">基本字段</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.base.Field">tortoise.fields.base.Field</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.base.OnDelete">tortoise.fields.base.OnDelete</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fields.html#id5">数据字段</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.BigIntField">tortoise.fields.data.BigIntField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.BinaryField">tortoise.fields.data.BinaryField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.BooleanField">tortoise.fields.data.BooleanField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.CharEnumField">tortoise.fields.data.CharEnumField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.CharField">tortoise.fields.data.CharField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.DateField">tortoise.fields.data.DateField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.DatetimeField">tortoise.fields.data.DatetimeField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.DecimalField">tortoise.fields.data.DecimalField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.FloatField">tortoise.fields.data.FloatField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.IntEnumField">tortoise.fields.data.IntEnumField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.IntField">tortoise.fields.data.IntField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.JSONField">tortoise.fields.data.JSONField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.SmallIntField">tortoise.fields.data.SmallIntField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.TextField">tortoise.fields.data.TextField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.TimeDeltaField">tortoise.fields.data.TimeDeltaField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.data.UUIDField">tortoise.fields.data.UUIDField</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fields.html#id6">关系字段</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.relational.ForeignKeyField">tortoise.fields.relational.ForeignKeyField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.relational.ManyToManyField">tortoise.fields.relational.ManyToManyField</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#tortoise.fields.relational.OneToOneField">tortoise.fields.relational.OneToOneField</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fields.html#db">DB特定字段</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#module-tortoise.contrib.mysql.fields">MySQL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fields.html#module-tortoise.contrib.postgres.fields">Postgres</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fields.html#id7">扩展一个字段</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="indexes.html">索引</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="indexes.html#id2">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indexes.html#id3">扩展索引</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="timezone.html">时区</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="timezone.html#timezone">前言</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#use-tz">use_tz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#id3">timezone</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="timezone.html#id4">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#tortoise.timezone.get_default_timezone">tortoise.timezone.get_default_timezone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#tortoise.timezone.get_timezone">tortoise.timezone.get_timezone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#tortoise.timezone.get_use_tz">tortoise.timezone.get_use_tz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#tortoise.timezone.is_aware">tortoise.timezone.is_aware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#tortoise.timezone.is_naive">tortoise.timezone.is_naive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#tortoise.timezone.localtime">tortoise.timezone.localtime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#tortoise.timezone.make_aware">tortoise.timezone.make_aware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#tortoise.timezone.make_naive">tortoise.timezone.make_naive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timezone.html#tortoise.timezone.now">tortoise.timezone.now</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="schema.html">Schema 创建</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="schema.html#parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="schema.html#tortoise.Tortoise.generate_schemas.safe">safe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="schema.html#raises">Raises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema.html#return-type">Return type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema.html#parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="schema.html#tortoise.Tortoise.generate_schemas.safe">safe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="schema.html#raises">Raises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema.html#return-type">Return type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema.html#id2">帮助函数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="schema.html#tortoise.utils.generate_schema_for_client">tortoise.utils.generate_schema_for_client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="schema.html#tortoise.utils.get_schema_sql">tortoise.utils.get_schema_sql</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="query.html">查询API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query.html#queryset">QuerySet</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.QuerySetSingle">tortoise.queryset.QuerySetSingle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.QuerySet">tortoise.queryset.QuerySet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.BulkCreateQuery">tortoise.queryset.BulkCreateQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.BulkUpdateQuery">tortoise.queryset.BulkUpdateQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.CountQuery">tortoise.queryset.CountQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.DeleteQuery">tortoise.queryset.DeleteQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.ExistsQuery">tortoise.queryset.ExistsQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.FieldSelectQuery">tortoise.queryset.FieldSelectQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.RawSQLQuery">tortoise.queryset.RawSQLQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.UpdateQuery">tortoise.queryset.UpdateQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.ValuesListQuery">tortoise.queryset.ValuesListQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.queryset.ValuesQuery">tortoise.queryset.ValuesQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id0">tortoise.queryset.QuerySetSingle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id3">tortoise.queryset.QuerySet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id40">tortoise.queryset.BulkCreateQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id42">tortoise.queryset.BulkUpdateQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id44">tortoise.queryset.CountQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id45">tortoise.queryset.DeleteQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id46">tortoise.queryset.ExistsQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id47">tortoise.queryset.FieldSelectQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id48">tortoise.queryset.RawSQLQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id49">tortoise.queryset.UpdateQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id50">tortoise.queryset.ValuesListQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id51">tortoise.queryset.ValuesQuery</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="query.html#foreign-key">外键</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.fields.relational.ReverseRelation">tortoise.fields.relational.ReverseRelation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.fields.relational.ForeignKeyNullableRelation">tortoise.fields.relational.ForeignKeyNullableRelation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.fields.relational.ForeignKeyRelation">tortoise.fields.relational.ForeignKeyRelation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="query.html#one-to-one">一对一</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.fields.relational.OneToOneNullableRelation">tortoise.fields.relational.OneToOneNullableRelation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.fields.relational.OneToOneRelation">tortoise.fields.relational.OneToOneRelation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="query.html#many-to-many">多对多</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.fields.relational.ManyToManyRelation">tortoise.fields.relational.ManyToManyRelation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="query.html#id56">tortoise.fields.relational.ManyToManyRelation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="query.html#filtering-queries">过滤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query.html#id67">复杂的预获取</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query.html#tortoise.query_utils.Prefetch">tortoise.query_utils.Prefetch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manager.html#id2">用法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">函数和聚合</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="functions.html#id2">函数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Trim">tortoise.functions.Trim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Length">tortoise.functions.Length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Coalesce">tortoise.functions.Coalesce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Lower">tortoise.functions.Lower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Upper">tortoise.functions.Upper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Concat">tortoise.functions.Concat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.contrib.mysql.functions.Rand">tortoise.contrib.mysql.functions.Rand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.contrib.postgres.functions.Random">tortoise.contrib.postgres.functions.Random</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.contrib.sqlite.functions.Random">tortoise.contrib.sqlite.functions.Random</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="functions.html#id3">聚合</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Count">tortoise.functions.Count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Sum">tortoise.functions.Sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Max">tortoise.functions.Max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Min">tortoise.functions.Min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Avg">tortoise.functions.Avg</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="functions.html#id4">基础函数类</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Function">tortoise.functions.Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#tortoise.functions.Aggregate">tortoise.functions.Aggregate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="functions.html#id5">自定义函数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.html">表达式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="expressions.html#q">Q表达式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="expressions.html#tortoise.expressions.Q">tortoise.expressions.Q</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="expressions.html#f">F 表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expressions.html#id2">子查询</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expressions.html#sql">原生SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expressions.html#case-when">Case-When 表达式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="expressions.html#tortoise.expressions.When">tortoise.expressions.When</a></li>
+<li class="toctree-l4"><a class="reference internal" href="expressions.html#tortoise.expressions.Case">tortoise.expressions.Case</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html">事务</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transactions.html#tortoise.transactions.atomic">tortoise.transactions.atomic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transactions.html#tortoise.transactions.in_transaction">tortoise.transactions.in_transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connections.html">连接</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="connections.html#tortoise.connection.ConnectionHandler">tortoise.connection.ConnectionHandler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">异常</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.BaseORMException">tortoise.exceptions.BaseORMException</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.ConfigurationError">tortoise.exceptions.ConfigurationError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.DBConnectionError">tortoise.exceptions.DBConnectionError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.DoesNotExist">tortoise.exceptions.DoesNotExist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.FieldError">tortoise.exceptions.FieldError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.IncompleteInstanceError">tortoise.exceptions.IncompleteInstanceError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.IntegrityError">tortoise.exceptions.IntegrityError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.MultipleObjectsReturned">tortoise.exceptions.MultipleObjectsReturned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.NoValuesFetched">tortoise.exceptions.NoValuesFetched</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.NotExistOrMultiple">tortoise.exceptions.NotExistOrMultiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.ObjectDoesNotExistError">tortoise.exceptions.ObjectDoesNotExistError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.OperationalError">tortoise.exceptions.OperationalError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.ParamsError">tortoise.exceptions.ParamsError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.TransactionManagementError">tortoise.exceptions.TransactionManagementError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.UnSupportedError">tortoise.exceptions.UnSupportedError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#tortoise.exceptions.ValidationError">tortoise.exceptions.ValidationError</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="signals.html">信号</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="signals.html#tortoise.signals.Signals">tortoise.signals.Signals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.Signals.post_delete">post_delete</a></li>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.Signals.post_save">post_save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.Signals.pre_delete">pre_delete</a></li>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.Signals.pre_save">pre_save</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="signals.html#tortoise.signals.post_delete">tortoise.signals.post_delete</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.post_delete-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.post_delete-return-type">Return type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="signals.html#tortoise.signals.post_save">tortoise.signals.post_save</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.post_save-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.post_save-return-type">Return type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="signals.html#tortoise.signals.pre_delete">tortoise.signals.pre_delete</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.pre_delete-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.pre_delete-return-type">Return type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="signals.html#tortoise.signals.pre_save">tortoise.signals.pre_save</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.pre_save-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="signals.html#tortoise.signals.pre_save-return-type">Return type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html">迁移</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migration.html#id3">快速开始</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migration.html#id4">用法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="migration.html#id5">初始化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration.html#db">初始化db</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration.html#id6">更新模型并生成迁移文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration.html#id7">升级到最新版本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration.html#id8">降级到指定版本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration.html#id9">显示历史</a></li>
+<li class="toctree-l4"><a class="reference internal" href="migration.html#header">显示已迁移的头(header)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="validators.html">校验</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="validators.html#id2">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="validators.html#id3">内置校验器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.CommaSeparatedIntegerListValidator">tortoise.validators.CommaSeparatedIntegerListValidator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.MaxLengthValidator">tortoise.validators.MaxLengthValidator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.MaxValueValidator">tortoise.validators.MaxValueValidator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.MinLengthValidator">tortoise.validators.MinLengthValidator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.MinValueValidator">tortoise.validators.MinValueValidator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.RegexValidator">tortoise.validators.RegexValidator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.Validator">tortoise.validators.Validator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.validate_ipv46_address">tortoise.validators.validate_ipv46_address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.validate_ipv4_address">tortoise.validators.validate_ipv4_address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="validators.html#tortoise.validators.validate_ipv6_address">tortoise.validators.validate_ipv6_address</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="validators.html#id4">自定义校验器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router.html">路由</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="router.html#id2">用法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="router.html#id3">定义路由</a></li>
+<li class="toctree-l4"><a class="reference internal" href="router.html#id4">配置路由</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html">TortoiseCLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cli.html#id2">快速开始</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cli.html#id3">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cli.html#shell">交互式 shell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">样例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/basic.html">简单样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#basic">基本使用(Basic)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#comments">备注(Comments)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#prefetching">预取(Prefetching)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#transactions">事务(Transactions)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#functions">函数(Functions)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#group-by">分组(Group By)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#schema-schema-creation">Schema创建(Schema creation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#two-databases">多数据库(Two Databases)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#filtering">过滤(Filtering)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#relations">关系(Relations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#relations-with-unique-field">唯一字段关系(Relations with Unique field)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#recursive-relations">递归关系(Recursive Relations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#enumeration-fields">枚举字段(Enumeration Fields)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#model-signals">模型信号(Model Signals)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#sql-manual-sql">手写SQL(Manual SQL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/basic.html#router">路由(Router)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples/pydantic.html">Pydantic 样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/pydantic.html#example-pydantic-basic">基本用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/pydantic.html#example-pydantic-early-init">早期模型初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/pydantic.html#example-pydantic-recursive">递归模型 + 计算字段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/pydantic.html#example-pydantic-tutorials">教程来源</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/pydantic.html#example-pydantic-tut1">1: 基本用法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/pydantic.html#querysets-lists">2: Querysets &amp; Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/pydantic.html#relations-early-init">3: Relations &amp; Early-init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/pydantic.html#pydanticmeta-callables">4: PydanticMeta &amp; Callables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples/fastapi.html">FastAPI 样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/fastapi.html#id1">基本非关系示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/fastapi.html#models-py">models.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/fastapi.html#tests-py">tests.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/fastapi.html#main-py">main.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples/quart.html">Quart 样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/quart.html#models-py">models.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/quart.html#main-py">main.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sanic.html">Sanic 样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/sanic.html#models-py">models.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/sanic.html#main-py">main.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples/starlette.html">Starlette 样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/starlette.html#models-py">models.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/starlette.html#main-py">main.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples/aiohttp.html">AIOHTTP 样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/aiohttp.html#models-py">models.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/aiohttp.html#main-py">main.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples/blacksheep.html">BlackSheep 样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/blacksheep.html#id1">基本非关系示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/blacksheep.html#models-py">models.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/blacksheep.html#test-api-py">test_api.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/blacksheep.html#server-py">server.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contrib.html">集成/插件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contrib/linters.html">Linters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/linters.html#pylint">PyLint 插件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/linters.html#id2">用法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/pydantic.html">Pydantic 序列化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/pydantic.html#id1">教程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/pydantic.html#id2">1: 基本用法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/pydantic.html#querysetlist">2: Queryset和List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/pydantic.html#id6">3: 关系和初始化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/pydantic.html#pydanticmeta-callables">4: PydanticMeta 和 Callables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/pydantic.html#id7">创建器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.pydantic_model_creator">tortoise.contrib.pydantic.creator.pydantic_model_creator</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.pydantic_model_creator-parameters">Parameters</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.pydantic_model_creator-return-type">Return type</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.pydantic_queryset_creator">tortoise.contrib.pydantic.creator.pydantic_queryset_creator</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.pydantic_queryset_creator-parameters">Parameters</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.pydantic_queryset_creator-return-type">Return type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/pydantic.html#pydanticmeta">PydanticMeta</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta">tortoise.contrib.pydantic.creator.PydanticMeta</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta.allow_cycles">allow_cycles</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta.backward_relations">backward_relations</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta.computed">computed</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta.exclude">exclude</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta.exclude_raw_fields">exclude_raw_fields</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta.include">include</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta.max_recursion">max_recursion</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta.model_config">model_config</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.creator.PydanticMeta.sort_alphabetically">sort_alphabetically</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/pydantic.html#id8">模型类</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticListModel">tortoise.contrib.pydantic.base.PydanticListModel</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticListModel.from_queryset">from_queryset</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticListModel.model_computed_fields">model_computed_fields</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticListModel.model_config">model_config</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticListModel.model_fields">model_fields</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticModel">tortoise.contrib.pydantic.base.PydanticModel</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticModel.from_queryset">from_queryset</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticModel.from_queryset_single">from_queryset_single</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticModel.from_tortoise_orm">from_tortoise_orm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticModel.model_computed_fields">model_computed_fields</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticModel.model_config">model_config</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/pydantic.html#tortoise.contrib.pydantic.base.PydanticModel.model_fields">model_fields</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/unittest.html">单元测试支持</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/unittest.html#id2">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/unittest.html#id3">测试运行器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#id4">绿色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#py-test">Py.test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#nose2">Nose2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/unittest.html#id5">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.IsolatedTestCase">tortoise.contrib.test.IsolatedTestCase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.SimpleTestCase">tortoise.contrib.test.SimpleTestCase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.SkipTest">tortoise.contrib.test.SkipTest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.TestCase">tortoise.contrib.test.TestCase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.TruncationTestCase">tortoise.contrib.test.TruncationTestCase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.env_initializer">tortoise.contrib.test.env_initializer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.expectedFailure">tortoise.contrib.test.expectedFailure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.finalizer">tortoise.contrib.test.finalizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.getDBConfig">tortoise.contrib.test.getDBConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.init_memory_sqlite">tortoise.contrib.test.init_memory_sqlite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.initializer">tortoise.contrib.test.initializer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.requireCapability">tortoise.contrib.test.requireCapability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.skip">tortoise.contrib.test.skip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.skipIf">tortoise.contrib.test.skipIf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/unittest.html#tortoise.contrib.test.skipUnless">tortoise.contrib.test.skipUnless</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/fastapi.html">Tortoise-ORM FastAPI 集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/fastapi.html#id1">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/fastapi.html#tortoise.contrib.fastapi.HTTPNotFoundError">tortoise.contrib.fastapi.HTTPNotFoundError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/fastapi.html#tortoise.contrib.fastapi.RegisterTortoise">tortoise.contrib.fastapi.RegisterTortoise</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/fastapi.html#tortoise.contrib.fastapi.register_tortoise">tortoise.contrib.fastapi.register_tortoise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/quart.html">Tortoise-ORM Quart 集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/quart.html#id1">用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/quart.html#id2">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/quart.html#tortoise.contrib.quart.register_tortoise">tortoise.contrib.quart.register_tortoise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/sanic.html">Tortoise-ORM Sanic 集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/sanic.html#id1">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/sanic.html#tortoise.contrib.sanic.register_tortoise">tortoise.contrib.sanic.register_tortoise</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="contrib/sanic.html#tortoise.contrib.sanic.register_tortoise-parameters">Parameters</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/sanic.html#tortoise.contrib.sanic.register_tortoise-raises">Raises</a></li>
+<li class="toctree-l5"><a class="reference internal" href="contrib/sanic.html#tortoise.contrib.sanic.register_tortoise-return-type">Return type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/starlette.html">Tortoise-ORM Starlette 集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/starlette.html#id1">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/starlette.html#tortoise.contrib.starlette.register_tortoise">tortoise.contrib.starlette.register_tortoise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/aiohttp.html">Tortoise-ORM aiohttp 集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/aiohttp.html#id1">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/aiohttp.html#tortoise.contrib.aiohttp.register_tortoise">tortoise.contrib.aiohttp.register_tortoise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/mysql.html">MySQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/mysql.html#id1">索引</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/mysql.html#tortoise.contrib.mysql.indexes.FullTextIndex">tortoise.contrib.mysql.indexes.FullTextIndex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/mysql.html#tortoise.contrib.mysql.indexes.SpatialIndex">tortoise.contrib.mysql.indexes.SpatialIndex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/mysql.html#id2">字段</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/mysql.html#tortoise.contrib.mysql.fields.GeometryField">tortoise.contrib.mysql.fields.GeometryField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/mysql.html#tortoise.contrib.mysql.fields.UUIDField">tortoise.contrib.mysql.fields.UUIDField</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/mysql.html#id3">搜索</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/mysql.html#tortoise.contrib.mysql.search.SearchCriterion">tortoise.contrib.mysql.search.SearchCriterion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/postgres.html">Postgres</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/postgres.html#id1">索引</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.indexes.BloomIndex">tortoise.contrib.postgres.indexes.BloomIndex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.indexes.BrinIndex">tortoise.contrib.postgres.indexes.BrinIndex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.indexes.GinIndex">tortoise.contrib.postgres.indexes.GinIndex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.indexes.GistIndex">tortoise.contrib.postgres.indexes.GistIndex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.indexes.HashIndex">tortoise.contrib.postgres.indexes.HashIndex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.indexes.SpGistIndex">tortoise.contrib.postgres.indexes.SpGistIndex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/postgres.html#id2">字段</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.fields.ArrayField">tortoise.contrib.postgres.fields.ArrayField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.fields.TSVectorField">tortoise.contrib.postgres.fields.TSVectorField</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/postgres.html#id3">函数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.functions.ToTsVector">tortoise.contrib.postgres.functions.ToTsVector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.functions.ToTsQuery">tortoise.contrib.postgres.functions.ToTsQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.functions.PlainToTsQuery">tortoise.contrib.postgres.functions.PlainToTsQuery</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/postgres.html#id4">搜索</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/postgres.html#tortoise.contrib.postgres.search.SearchCriterion">tortoise.contrib.postgres.search.SearchCriterion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/blacksheep.html">Tortoise-ORM BlackSheep 集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/blacksheep.html#id1">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contrib/blacksheep.html#tortoise.contrib.blacksheep.register_tortoise">tortoise.contrib.blacksheep.register_tortoise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">变更日志</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id2">0.21</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id3">0.21.7</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#fixed">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id4">0.21.6</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id5">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id7">0.21.5 - 2024-07-18</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id8">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id10">0.21.4 - 2024-07-03</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id11">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id12">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id14">0.21.3 - 2024-06-01</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id15">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id17">0.21.2 - 2024-05-25</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id18">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id20">0.21.1 - 2024-05-24</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id21">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id23">0.21.0 - 2024-05-23</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id24">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id25">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id26">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#breaking-changes">Breaking Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id27">0.20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id28">0.20.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id29">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id30">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id31">0.20.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id32">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id33">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id34">Breaking Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id35">0.19</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id36">0.19.3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id37">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id38">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id39">0.19.2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id40">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id41">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id42">0.19.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id43">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id45">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id46">0.19.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id47">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id49">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#deprecated">Deprecated</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id50">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id51">0.18.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id52">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id53">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id54">0.18.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id55">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id56">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id57">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#removed">Removed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id58">0.17</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id59">0.17.8</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id60">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id63">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id64">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id65">0.17.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id66">0.17.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id67">0.17.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id68">0.17.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id69">0.17.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id70">0.17.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id71">0.17.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id72">0.17.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id73">0.16</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id74">0.16.21</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id75">0.16.20</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id76">0.16.19</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id77">0.16.18</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id79">0.16.17</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id80">0.16.16</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id81">0.16.15</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id82">0.16.14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id83">0.16.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id84">0.16.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id85">0.16.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id86">0.16.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id87">0.16.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id88">0.16.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id89">0.16.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id90">0.16.6</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#security-fixes">Security fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#other-changes">Other changes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id93">0.16.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id94">0.16.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id95">0.16.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id96">0.16.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id97">0.16.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id102">0.16.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#new-features">New features:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#bugfixes">Bugfixes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#removals">Removals:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id103">0.15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id104">0.15.24</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id105">0.15.23</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id106">0.15.22</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id107">0.15.21</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id108">0.15.20</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id109">0.15.19</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id110">0.15.18</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id111">0.15.17</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id112">0.15.16</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id113">0.15.15</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id114">0.15.14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id115">0.15.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id116">0.15.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id117">0.15.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id118">0.15.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id119">0.15.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id120">0.15.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id121">0.15.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id122">0.15.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id123">0.15.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id124">0.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id125">0.15.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id126">0.15.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id127">0.15.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id128">0.15.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id129">New features:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id130">Bugfixes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#deprecations">Deprecations:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id131">0.14</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id132">0.14.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id133">0.14.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id134">0.14.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#enhancements">Enhancements:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id135">Bugfixes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id136">Deprecations:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id137">Breaking Changes:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id138">0.13</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id139">0.13.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id140">0.13.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id141">0.13.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id142">0.13.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id143">0.13.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id144">0.13.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id145">0.13.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id146">0.13.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id147">0.13.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id148">0.13.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id149">0.13.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id150">0.13.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id151">0.13.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id152">New Features:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#id153">Bugfixes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CHANGELOG.html#docs-examples">Docs/examples:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id154">0.12</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#retracted">0.12.7 (retracted)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id155">0.12.6 / 0.12.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id156">0.12.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id157">0.12.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id158">0.12.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id159">0.12.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id160">0.12.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id161">0.12.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id162">0.11</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id163">0.11.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id164">0.11.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id165">0.11.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id166">0.11.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id167">0.11.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id168">0.11.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id169">0.11.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id170">0.11.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id171">0.11.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id172">0.11.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id173">0.11.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id174">0.11.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id175">0.11.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id176">0.11.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#id177">0.10</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id178">0.10.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id179">0.10.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id180">0.10.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id181">0.10.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id182">0.10.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id183">0.10.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id184">0.10.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id185">0.10.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id186">0.10.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id187">0.10.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id188">0.10.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id189">0.10.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHANGELOG.html#older">0.9 &amp; older</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id190">0.9.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id191">0.9.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id192">0.9.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id193">0.9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id194">0.9.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id195">0.8.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id196">0.7.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id197">0.6.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id198">0.5.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id199">0.4.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id200">0.3.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CHANGELOG.html#id201">0.2.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">路线图</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#id2">短期计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#id3">中期计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#id4">长期计划</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">贡献指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CODE_OF_CONDUCT.html#our-pledge">Our Pledge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE_OF_CONDUCT.html#our-standards">Our Standards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE_OF_CONDUCT.html#our-responsibilities">Our Responsibilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE_OF_CONDUCT.html#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE_OF_CONDUCT.html#enforcement">Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE_OF_CONDUCT.html#attribution">Attribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#id2">提交错误或请求功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#id3">聊天</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#id5">项目结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#id6">编码指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CONTRIBUTING.html#id7">优先事项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CONTRIBUTING.html#id8">样式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#id9">运行测试</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CONTRIBUTING.html#id10">测试的不同种类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CONTRIBUTING.html#id11">运行测试套件时需要注意的事项</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTORS.html">感谢</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTORS.html#id2">贡献列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTORS.html#id3">特别感谢</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+      
+        
+        <a href="index.html" class="md-footer__link md-footer__link--next" aria-label="Next: Tortoise ORM" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Tortoise ORM
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2018 - 2024, Andrey Bondar &amp; Nickolas Grigoriadis &amp; long2ice.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    8.1.3.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.tabs", "navigation.sections", "navigation.instant", "header.autohide", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "toc.follow", "toc.sticky"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+      
+        <script src="_static/sphinx_immaterial_theme.f9d9eeeb247ace16c.min.js?v=8ec58cb5"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+    
+  </body>
+</html>
